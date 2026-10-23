@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bohok-orange: #FF6B00;
+  --color-bohok-dark: #E85D04;
+  --color-bohok-soft: #FFF7F0;
+  --color-bohok-subtle: #FFE2CD;
+  --color-bohok-black: #171717;
+  --color-bohok-gray: #6B6B6B;
+  --color-bohok-card: #FFFFFF;
+  --color-bohok-border: #F0ECE7;
+  --color-bohok-green: #16A34A;
+  --color-bohok-green-soft: #DCFCE7;
+  --font-bengali: 'Hind Siliguri', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+:root {
+  --primary-orange: #FF6B00;
+  --deep-orange: #E85D04;
+  --soft-background: #FFF7F0;
+  --primary-text: #171717;
+  --secondary-text: #6B6B6B;
+  --pure-white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-bengali), var(--font-sans);
+  color: #171717;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #FFFFFF;
+  color: #171717;
+}
+
+/* Subtle focus indicators for accessibility */
+:focus-visible {
+  outline: 2px solid #FF6B00;
+  outline-offset: 2px;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF7F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B0040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B0080;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Pulse animation for map routes */
+@keyframes routePulse {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+}
+
+.animate-route-flow {
+  animation: routePulse 3s linear infinite;
+}
+
+@keyframes pingSubtle {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-subtle {
+  animation: pingSubtle 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
